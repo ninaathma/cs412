@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const apiRoutes = require('./routes/apiRoutes');
+const apiRoutes = require('./routes/ps4');
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/ps4', apiRoutes);
 
 // Route for the initial form
-app.get('/ps4/form', (req, res) => {
+app.get('/', (req, res) => {
     res.render('form');
 });
 
