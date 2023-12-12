@@ -1,32 +1,21 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <app-form (querySubmitted)="fetchData($event)"></app-form>
+    <app-result *ngIf="responseData" [data]="responseData"></app-result>
+  `,
 })
 export class AppComponent {
-  weatherData: any = {}; // Updated variable name
+  responseData: any;
 
-  constructor() {
-    // Load initial data from mock file
-  }
+  constructor(private dataService: DataService) {}
 
-  loadData() {
-    // Simulate fetching data from the mock file
-    import('assets/mock-data.json').then((data) => {
-      this.weatherData = data;
+  fetchData(city: string) {
+    this.dataService.fetchData(city).subscribe((data) => {
+      this.responseData = data;
     });
   }
-
-  fetchData() {
-    // Simulate fetching data from the PS4 backend
-    this.loadData();
-  }
-
 }
-

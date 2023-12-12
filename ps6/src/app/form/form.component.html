@@ -1,0 +1,5 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <label for="searchTerm">Search Term:</label>
+  <input id="searchTerm" formControlName="searchTerm" />
+  <button type="submit">Query</button>
+</form>

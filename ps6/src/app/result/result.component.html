@@ -1,0 +1,8 @@
+<div *ngIf="data">
+  <h2>Weather Information for {{ data.location.name }}</h2>
+  <div>
+    <p>Temperature: {{ data.current.temp_c }}°C / {{ data.current.temp_f }}°F</p>
+    <p>Condition: {{ data.current.condition.text }}</p>
+    <!-- Add more information as needed -->
+  </div>
+</div>
