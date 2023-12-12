@@ -3,10 +3,24 @@ html
         title Weather Search
     body
         h1 Weather Search
-        form(action='/ps4/form', method='post')
-            label(for='search') Enter City:
-            input(type='text', name='search', id='search', required)
-            button(type='submit') Get Weather
+
+        // Form for the first back-end route
+        form(action='/ps4/promise', method='post')
+            label(for='cityPromise') Enter City for Promise:
+            input(type='text', name='cityPromise', id='cityPromise', required)
+            button(type='submit', name='submitType', value='promise') Get Weather (Promise)
+
+        // Form for the second back-end route
+        form(action='/ps4/asyncawait', method='post')
+            label(for='cityAsyncAwait') Enter City for Async/Await:
+            input(type='text', name='cityAsyncAwait', id='cityAsyncAwait', required)
+            button(type='submit', name='submitType', value='asyncawait') Get Weather (Async/Await)
+
+        // Form for the third back-end route
+        form(action='/ps4/callback', method='post')
+            label(for='cityCallback') Enter City for Callback:
+            input(type='text', name='cityCallback', id='cityCallback', required)
+            button(type='submit', name='submitType', value='callback') Get Weather (Callback)
 
         // Display the results
         if data
