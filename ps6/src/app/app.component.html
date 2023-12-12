@@ -1,0 +1,12 @@
+<button (click)="fetchData()">Fetch Data</button>
+
+<div *ngIf="weatherData.location">
+  <h2>Weather Information for {{ weatherData.location.name }}</h2>
+  <div>
+    <p>Temperature: {{ weatherData.current.temp_c }}°C / {{ weatherData.current.temp_f }}°F</p>
+    <p>Condition: {{ weatherData.current.condition.text }}</p>
+    <p>Wind: {{ weatherData.current.wind_kph }} kph, {{ weatherData.current.wind_dir }}</p>
+    <!-- Add more information as needed -->
+  </div>
+</div>
+
