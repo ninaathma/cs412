@@ -1,0 +1,14 @@
+html
+    head
+        title Weather Search
+    body
+        h1 Weather Search
+        form(action='/ps4/form', method='post')
+            label(for='search') Enter City:
+            input(type='text', name='search', id='search', required)
+            button(type='submit') Get Weather
+
+        // Display the results
+        if data
+            h2 Current Weather
+            pre= data
